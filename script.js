@@ -5,6 +5,7 @@ let secondN;
 let operator;
 let display=document.querySelector("#output");
 let push=0;
+let onePoint=0;
 //
 function add(a,b){
     outputText= a+b;
@@ -41,6 +42,7 @@ equal.addEventListener("click",()=>{
         display.textContent=outputText;
         secondN=0;
         push=0;
+        onePoint=0;
 })
 
 let numkeys=document.querySelectorAll(".number");
@@ -56,6 +58,7 @@ opKeys.forEach(op=>op.addEventListener("click",()=>{
         firstN=Number(outputText);
         outputText="";
         push=1;
+        onePoint=0;
     }
     else if (push===1){
         secondN=Number(display.textContent);
@@ -64,6 +67,7 @@ opKeys.forEach(op=>op.addEventListener("click",()=>{
         display.textContent=outputText;
         firstN=outputText;
         outputText="";
+        onePoint=0;
     }
 }))
 
@@ -74,4 +78,15 @@ clear.addEventListener("click",()=>{
     outputText="";
     operator=null;
     display.textContent=0;
+    onePoint=0;
+})
+
+let point=document.querySelector(".point");
+point.addEventListener("click",()=>{
+    if (onePoint===1){}
+    else{
+        outputText+=point.id; 
+        display.textContent=outputText; 
+        onePoint=1;
+    }
 })
