@@ -8,17 +8,17 @@ let push=0;
 let onePoint=0;
 //
 function add(a,b){
-    outputText= a+b;
+    outputText= Math.round((a+b) * 10000) / 10000;
 }
 function subtract(a,b){
-    outputText= a-b;
+    outputText= Math.round((a-b) * 10000) / 10000;
 }
 function multiply(a,b){
-    outputText= a*b;
+    outputText= Math.round((a*b) * 10000) / 10000;
 }
 function divide(a,b){
     if(b===0){outputText="No pls";}
-    else {outputText= a/b;}
+    else {outputText= Math.round((a/b) * 10000) / 10000;}
 }
 //
 function operate(a,operator,b){
@@ -89,4 +89,13 @@ point.addEventListener("click",()=>{
         display.textContent=outputText; 
         onePoint=1;
     }
+})
+let back=document.querySelector("#back");
+back.addEventListener("click",()=>{
+    if (outputText<10){outputText=0}
+    else{
+        let editedOutput=outputText.slice(0,-1);
+        outputText=editedOutput;
+    }
+    display.textContent=outputText;
 })
