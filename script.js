@@ -92,10 +92,13 @@ point.addEventListener("click",()=>{
 })
 let back=document.querySelector("#back");
 back.addEventListener("click",()=>{
-    if (outputText<10){outputText=0}
-    else{
-        let editedOutput=outputText.slice(0,-1);
-        outputText=editedOutput;
+    if (Number(outputText<10)){
+        display.textContent=0;
+        outputText="";
     }
-    display.textContent=outputText;
+    else {let editedOutput=outputText.slice(0,-1);
+        outputText=editedOutput;
+        display.textContent=outputText;
+    }
+      
 })
