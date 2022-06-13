@@ -16,7 +16,8 @@ function multiply(a,b){
     outputText= a*b;
 }
 function divide(a,b){
-    outputText= a/b;
+    if(b===0){outputText="No pls";}
+    else {outputText= a/b;}
 }
 //
 function operate(a,operator,b){
@@ -31,15 +32,15 @@ function operate(a,operator,b){
 //
 let equal=document.querySelector("#equal");
 equal.addEventListener("click",()=>{
-    secondN=Number(display.textContent);
-    // console.log(secondN);
-    // console.log(firstN);
-    // console.log(operator);
-    operate(firstN,operator,secondN);
-    // console.log(outputText);
-    display.textContent=outputText;
-    secondN=0;
-    push=0;
+        secondN=Number(display.textContent);
+        // console.log(secondN);
+        // console.log(firstN);
+        // console.log(operator);
+        operate(firstN,operator,secondN);
+        // console.log(outputText);
+        display.textContent=outputText;
+        secondN=0;
+        push=0;
 })
 
 let numkeys=document.querySelectorAll(".number");
@@ -65,3 +66,12 @@ opKeys.forEach(op=>op.addEventListener("click",()=>{
         outputText="";
     }
 }))
+
+let clear=document.querySelector("#clear");
+clear.addEventListener("click",()=>{
+    firstN=null;
+    secondN=null;
+    outputText="";
+    operator=null;
+    display.textContent=0;
+})
